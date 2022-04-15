@@ -1,0 +1,34 @@
+# @package agent
+_target_: agents.algorithms.apt.APTAgent
+name: apt
+nstep: 1
+reward_free: ${reward_free}
+obs_type: ??? # to be specified later
+obs_shape: ??? # to be specified later
+action_shape: ??? # to be specified later
+device: ${device}
+lr: 1e-3
+feature_dim: 50
+hidden_dim: 512
+critic_target_tau: 0.01
+num_expl_steps: ??? # to be specified later
+batch_size: 512
+init_critic: true
+use_tb: ${use_tb}
+use_wandb: ${use_wandb}
+
+log_std_min : -10
+log_std_max : 2
+init_temperature : 0.1
+actor_update_frequency : 2
+critic_target_update_frequency : 2
+
+rep_dim : 15 ##어떻게 넣을 수 있을까
+projection_hidden_dim : 128
+projection_dim : 64
+
+knn_rms: false
+knn_k: 12
+knn_avg: true
+knn_clip: 0.0
+update_encoder: ${update_encoder}

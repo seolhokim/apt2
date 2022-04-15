@@ -1,0 +1,35 @@
+# @package agent
+_target_: agents.algorithms.icm_apt.ICMAPTAgent
+name: icm_apt
+nstep: 1
+reward_free: ${reward_free}
+obs_type: ??? # to be specified later
+obs_shape: ??? # to be specified later
+action_shape: ??? # to be specified later
+device: ${device}
+lr: 1e-3
+feature_dim: 50
+hidden_dim: 1024
+critic_target_tau: 0.01
+num_expl_steps: ??? # to be specified later
+batch_size: 256
+init_critic: true
+use_tb: ${use_tb}
+use_wandb: ${use_wandb}
+
+log_std_min : -10
+log_std_max : 2
+init_temperature : 0.1
+actor_update_frequency : 2
+critic_target_update_frequency : 2
+
+icm_hidden_dim : 512
+icm_rep_dim : 512
+icm_rep_hidden_dim : 1024
+icm_scale: 1.0
+
+knn_rms: false
+knn_k: 12
+knn_avg: true
+knn_clip: 0.0
+update_encoder: ${update_encoder}
